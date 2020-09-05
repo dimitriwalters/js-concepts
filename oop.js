@@ -24,3 +24,24 @@ var o4 = new MyObject2('value', 'value2');
 console.log(o4.propPublic);
 console.log(o4.propPrivate);
 console.log(o4.getPropPrivate());
+
+// classes
+class MyClass {
+  #prop2;
+  constructor(v1, v2) {
+    this.prop = v1;
+    this.#prop2 = v2;
+  }
+  getProp2 = () => this.#prop2
+}
+o5 = new MyClass('value', 'value2');
+console.log(o5.prop);
+console.log(o5.getProp2());
+class ChildClass extends MyClass {
+  constructor(v1, v2, v3) {
+    super(v1, v2)
+    this.prop3 = v3
+  }
+}
+o6 = new ChildClass('value', 'value2', 'value3');
+console.log(o6);
