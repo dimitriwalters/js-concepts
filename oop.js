@@ -45,3 +45,23 @@ class ChildClass extends MyClass {
 }
 var o6 = new ChildClass('value', 'value2', 'value3');
 console.log(o6);
+
+// prototypes
+function ParentProto(v1, v2) {
+    this.prop = v1;
+    this.prop2 = v2
+}
+function ChildProto(v1, v2, v3) {
+  ParentProto.call(this, v1, v2);
+  this.prop3 = v3;
+}
+ChildProto.prototype = Object.create(ParentProto.prototype);
+Object.defineProperty(ChildProto.prototype, 'constructor', {
+  value: ChildProto,
+  enumerable: false,
+  writable: true
+});
+console.log(ParentProto.prototype.constructor);
+console.log(ChildProto.prototype.constructor);
+var o7 = new ChildProto('value', 'value2', 'value3');
+console.log(o7);
