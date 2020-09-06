@@ -34,7 +34,7 @@ class MyClass {
   }
   getProp2 = () => this.#prop2
 }
-o5 = new MyClass('value', 'value2');
+var o5 = new MyClass('value', 'value2');
 console.log(o5.prop);
 console.log(o5.getProp2());
 class ChildClass extends MyClass {
@@ -43,5 +43,5 @@ class ChildClass extends MyClass {
     this.prop3 = v3
   }
 }
-o6 = new ChildClass('value', 'value2', 'value3');
+var o6 = new ChildClass('value', 'value2', 'value3');
 console.log(o6);
