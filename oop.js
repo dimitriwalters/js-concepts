@@ -1,6 +1,6 @@
 // creating objects
-var o1 = {};
-var o2 = new Object();
+let o1 = {};
+let o2 = new Object();
 o1['prop'] = 'value';
 o2['prop'] = 'value';
 o1.prop2 = 'value2';
@@ -12,15 +12,15 @@ function MyObject(v1, v2) {
     this.prop = v1;
     this.prop2 = v2
 }
-var o3 = new MyObject('value', 'value2')
+let o3 = new MyObject('value', 'value2')
 o3.prop2 = 'value3';
 console.log(o3);
 function MyObject2(v1, v2) {
     this.propPublic = v1;
-    var propPrivate = v2
+    let propPrivate = v2
     this.getPropPrivate = () => propPrivate;
 }
-var o4 = new MyObject2('value', 'value2');
+let o4 = new MyObject2('value', 'value2');
 console.log(o4.propPublic);
 console.log(o4.propPrivate);
 console.log(o4.getPropPrivate());
@@ -34,7 +34,7 @@ class MyClass {
   }
   getProp2 = () => this.#prop2
 }
-var o5 = new MyClass('value', 'value2');
+let o5 = new MyClass('value', 'value2');
 console.log(o5.prop);
 console.log(o5.getProp2());
 class ChildClass extends MyClass {
@@ -43,7 +43,7 @@ class ChildClass extends MyClass {
     this.prop3 = v3
   }
 }
-var o6 = new ChildClass('value', 'value2', 'value3');
+let o6 = new ChildClass('value', 'value2', 'value3');
 console.log(o6);
 
 // prototypes
@@ -63,5 +63,5 @@ Object.defineProperty(ChildProto.prototype, 'constructor', {
 });
 console.log(ParentProto.prototype.constructor);
 console.log(ChildProto.prototype.constructor);
-var o7 = new ChildProto('value', 'value2', 'value3');
+let o7 = new ChildProto('value', 'value2', 'value3');
 console.log(o7);
