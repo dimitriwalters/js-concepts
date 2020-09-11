@@ -15,6 +15,19 @@ const add = (x,y) => x + y;
 arr = [1,2,3,4];
 console.log(arr.reduce(add));
 
+// closures
+
+let x = 4;
+function addX(y) { return x + y; }
+function addXClosure() {
+  let z = x;
+  return function (y) { return z + y; };
+}
+addXClj = addXClosure();
+x = 5;
+console.log(addX(2));
+console.log(addXClj(2));
+
 // currying
 
 const adder = (x) => (y) => x + y;
