@@ -17,16 +17,16 @@ console.log(arr.reduce(add));
 
 // closures
 
-let x = 4;
+let x = 1;
 function addX(y) { return x + y; }
 function addXClosure() {
   let z = x;
   return function (y) { return z + y; };
 }
-addXClj = addXClosure();
-x = 5;
-console.log(addX(2));
-console.log(addXClj(2));
+const addXClj = addXClosure();
+x = 2;
+console.log(addX(1));
+console.log(addXClj(1));
 
 // currying
 
