@@ -1,46 +1,23 @@
-// arrow functions
+/*
+- a first-class citizen is an entity that can be put in a variable
+- a higher-order function is a function that does at least one of the following:
+    - takes one or more functions as arguments (i.e. procedural parameters),
+    - returns a function as its result.
+- currying is the technique of converting a function that takes multiple arguments into a sequence of functions that each take a single argument
+*/
+
+// first-class functions
 
 const add = (x,y) => x + y;
-console.log(add(1,2));
 
-const add2 = (x) => (y) => x + y;
-console.log(add2(1)(2));
-addOne = add2(1);
-console.log(addOne(2));
+// higher-order functions
 
-// abstract funcs - map
+arr = [1,2,3,4];
+console.log(arr.reduce(add));
 
-arr = [1,2,3,4]
+// currying
 
-arr2 = []
-for (let i=0; i<4; i++) {
-    arr2[i] = arr[i] + 1; // <-- imperactive
-}
-console.log(arr2);
+const adder = (x) => (y) => x + y;
+addOne = adder(1);
+console.log(arr.map(addOne));
 
-arr3 = arr.map(addOne); // <-- functional
-console.log(arr3);
-
-// abstract funcs - filter
-
-arr4 = []
-for (let i=0; i<4; i++) {
-    if (arr[i] % 2 == 0) {
-        arr4.push(arr[i]);
-    }
-}
-console.log(arr4);
-
-arr5 = arr.filter((x) => x % 2 == 0);
-console.log(arr5);
-
-// abstract funcs - reduce
-
-sum1 = 0
-for (let i=0; i<4; i++) {
-    sum1 += arr[i];
-}
-console.log(sum1);
-
-sum2 = arr.reduce(add);
-console.log(sum2);
