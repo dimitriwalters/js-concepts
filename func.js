@@ -31,6 +31,5 @@ console.log(addXClj(1));
 // currying
 
 const adder = (x) => (y) => x + y;
-addOne = adder(1);
-console.log(arr.map(addOne));
+console.log(arr.map(adder(1)));
 
