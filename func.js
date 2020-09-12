@@ -28,6 +28,11 @@ x = 2;
 console.log(addX(1));
 console.log(addXClj(1));
 
+// partial application
+
+const addOne = add.bind(null, 1);
+console.log(addOne(1));
+
 // currying
 
 const adder = (x) => (y) => x + y;
