@@ -1,4 +1,4 @@
-const FACULTY = "MATH"
+const PERMISSION = "MATH";
 
 interface Student {
   getName(): string;
@@ -14,19 +14,21 @@ class Department {
   private students: Student[] = [];
   getStudents(): Student[] { return this.students; }
   addStudent(s: Student): void { this.students.push(s); }
-  createStudent(name: string): Student { // factory <-- logic in here
-    let student: Student;
-    if (FACULTY == "MATH") {
-      student = new MathStudent(name);
-    } else {
-      student = null;
-    }
-    return student
+  createStudent(name: string): Student { return null; } // <-- factory method
+} class MathDepartment extends Department {
+  createStudent(name: string): Student {
+    let student = new MathStudent(name);
+    return student;
   }
 }
 
 // client code
-let dpt = new Department();
+let dpt: Department;
+if (PERMISSION == "MATH") {
+  dpt = new MathDepartment();
+} else {
+  dpt = null;
+}
 dpt.addStudent(dpt.createStudent("euler"));
 dpt.addStudent(dpt.createStudent("obama"));
 console.log(dpt.getStudents());
