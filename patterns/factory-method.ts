@@ -1,8 +1,9 @@
+const FACULTY = "MATH"
+
 interface Student {
   getName(): string;
   getTuition(): number;
-}
-class MathStudent implements Student {
+} class MathStudent implements Student {
   private name: string;
   constructor(name: string) { this.name = name; }
   getName() { return this.name; }
@@ -10,17 +11,22 @@ class MathStudent implements Student {
 }
 
 class Department {
-  createStudent(name: string): Student { return null; }
-}
-class MathDepartment extends Department {
-  createStudent(name: string): Student {
-    let student = new MathStudent(name);
-    return student;
+  private students: Student[] = [];
+  getStudents(): Student[] { return this.students; }
+  addStudent(s: Student): void { this.students.push(s); }
+  createStudent(name: string): Student { // factory <-- logic in here
+    let student: Student;
+    if (FACULTY == "MATH") {
+      student = new MathStudent(name);
+    } else {
+      student = null;
+    }
+    return student
   }
 }
 
-let students: Student[] = [];
-let d: Department = new MathDepartment();
-students.push(d.createStudent("euler"));
-students.push(d.createStudent("obama"));
-console.log(students);
+// client code
+let dpt = new Department();
+dpt.addStudent(dpt.createStudent("euler"));
+dpt.addStudent(dpt.createStudent("obama"));
+console.log(dpt.getStudents());

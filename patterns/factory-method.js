@@ -1,19 +1,28 @@
+const FACULTY = "MATH";
 class MathStudent {
     constructor(name) { this.name = name; }
     getName() { return this.name; }
     getTuition() { return 1500; }
 }
 class Department {
-    createStudent(name) { return null; }
-}
-class MathDepartment extends Department {
+    constructor() {
+        this.students = [];
+    }
+    getStudents() { return this.students; }
+    addStudent(s) { this.students.push(s); }
     createStudent(name) {
-        let student = new MathStudent(name);
+        let student;
+        if (FACULTY == "MATH") {
+            student = new MathStudent(name);
+        }
+        else {
+            student = null;
+        }
         return student;
     }
 }
-let students = [];
-let d = new MathDepartment();
-students.push(d.createStudent("euler"));
-students.push(d.createStudent("obama"));
-console.log(students);
+// client code
+let dpt = new Department();
+dpt.addStudent(dpt.createStudent("euler"));
+dpt.addStudent(dpt.createStudent("obama"));
+console.log(dpt.getStudents());
