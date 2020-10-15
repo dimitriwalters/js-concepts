@@ -5,11 +5,11 @@ class MathStudent {
     getTuition() { return 1500; }
 }
 class Department {
-    constructor() {
-        this.students = [];
+    importNewStudents(names) {
+        let std1 = this.createStudent(names[0]);
+        let std2 = this.createStudent(names[1]);
+        return [std1, std2];
     }
-    getStudents() { return this.students; }
-    addStudent(s) { this.students.push(s); }
     createStudent(name) { return null; } // <-- factory method
 }
 class MathDepartment extends Department {
@@ -19,13 +19,6 @@ class MathDepartment extends Department {
     }
 }
 // client code
-let dpt;
-if (PERMISSION == "MATH") {
-    dpt = new MathDepartment();
-}
-else {
-    dpt = null;
-}
-dpt.addStudent(dpt.createStudent("euler"));
-dpt.addStudent(dpt.createStudent("obama"));
-console.log(dpt.getStudents());
+let dpt = new MathDepartment();
+let stds = dpt.importNewStudents(["euler", "obama"]);
+console.log(stds);

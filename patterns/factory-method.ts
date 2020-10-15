@@ -11,9 +11,11 @@ interface Student {
 }
 
 class Department {
-  private students: Student[] = [];
-  getStudents(): Student[] { return this.students; }
-  addStudent(s: Student): void { this.students.push(s); }
+  importNewStudents(names: string[]): Student[] {
+    let std1 = this.createStudent(names[0]);
+    let std2 = this.createStudent(names[1]);
+    return [std1, std2];
+  }
   createStudent(name: string): Student { return null; } // <-- factory method
 } class MathDepartment extends Department {
   createStudent(name: string): Student {
@@ -23,12 +25,6 @@ class Department {
 }
 
 // client code
-let dpt: Department;
-if (PERMISSION == "MATH") {
-  dpt = new MathDepartment();
-} else {
-  dpt = null;
-}
-dpt.addStudent(dpt.createStudent("euler"));
-dpt.addStudent(dpt.createStudent("obama"));
-console.log(dpt.getStudents());
+let dpt = new MathDepartment();
+let stds = dpt.importNewStudents(["euler", "obama"]);
+console.log(stds);
