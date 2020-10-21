@@ -1,5 +1,3 @@
-const PERMISSION = "MATH";
-
 interface Student {
   getName(): string;
   getTuition(): number;

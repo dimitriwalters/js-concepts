@@ -1,4 +1,3 @@
-const PERMISSION = "MATH";
 class MathStudent {
     constructor(name) { this.name = name; }
     getName() { return this.name; }
