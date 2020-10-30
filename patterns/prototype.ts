@@ -7,7 +7,7 @@ class Student {
   }
 }
 let mathStudent: Student = new Student('Math');
-let artStudent: Student = new Student('Math');
+let artStudent: Student = new Student('Art');
 let s1 = mathStudent.clone(); // prototypes
 s1.name = 'Euler';
 let s2 = artStudent.clone(); // prototypes
