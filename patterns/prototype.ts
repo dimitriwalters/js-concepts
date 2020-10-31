@@ -1,5 +1,5 @@
 class Student {
-  public department: string;
+  private department: string;
   public name: string;
   constructor(department: string) { this.department = department; }
   clone(): Student {
