@@ -1,11 +1,11 @@
-interface Wrap {
+interface Wrap { // abstraction
   getCalories(): number;
   addIngredient(ingredient: Ingredient): void;
 }
-interface Ingredient {
+interface Ingredient { // implementor
   getCalories(): number;
 }
-class Pita implements Wrap {
+class Pita implements Wrap { // refined abstraction
   private ingredients: Ingredient[];
   constructor() {
     this.ingredients = [];
@@ -21,7 +21,7 @@ class Pita implements Wrap {
     this.ingredients.push(ingredient);
   }
 }
-class Veggies implements Ingredient {
+class Veggies implements Ingredient { // concrete implementor
   getCalories(): number {
     return 120;
   }
