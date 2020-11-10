@@ -1,9 +1,9 @@
-interface Ingredient {
-  getCalories(): number;
-}
 interface Wrap {
   getCalories(): number;
   addIngredient(ingredient: Ingredient): void;
+}
+interface Ingredient {
+  getCalories(): number;
 }
 class Pita implements Wrap {
   private ingredients: Ingredient[];
